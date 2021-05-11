@@ -1,10 +1,6 @@
-
 const canvas = document.getElementById('canvas')
 const context = canvas.getContext('2d')
-// const gradient = context.createLinearGradient(0, 0, canvas.width, 0)
-// const gradient = context.createLinearGradient(0, 0, 0, canvas.height)
-// const gradient = context.createLinearGradient(0, 0, canvas.width, canvas.height)
-const gradient = context.createLinearGradient(0, 0, 0, canvas.height/2)
+const gradient = context.createRadialGradient(canvas.width/2, canvas.height, 10, canvas.width/2, 0, 100)
 
 gradient.addColorStop(0, 'blue')
 gradient.addColorStop(0.25, 'white')
@@ -15,4 +11,3 @@ gradient.addColorStop(1, 'yellow')
 context.fillStyle = gradient
 context.rect(0, 0, canvas.width, canvas.height)
 context.fill()
-
