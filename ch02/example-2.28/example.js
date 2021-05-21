@@ -176,7 +176,7 @@ canvas.onmousedown = function(e) {
     e.preventDefault() // prevent cursor change
 
     if (editing) {
-        polygons.forEach( function (polygon) {
+        polygons.forEach( polygon => {
             polygon.createPath(context)
             if (context.isPointInPath(loc.x, loc.y)) {
                 startDragging(loc)
@@ -186,8 +186,7 @@ canvas.onmousedown = function(e) {
                 return
             }
         })
-    }
-    else {
+    } else {
         startDragging(loc)
         dragging = true
     }
@@ -205,14 +204,13 @@ canvas.onmousemove = function(e) {
         context.clearRect(0, 0, canvas.width, canvas.height)
         drawGrid('lightgray', 10, 10)
         drawPolygons()
-    }
-    else {
+    } else {
         if (dragging) {
             restoreDrawingSurface()
             updateRubberBand(loc, sides, startAngle)
 
             if (guideWires) {
-                drawGuidewires(mousedown.x, mousedown.y)
+                drawGuideWires(mousedown.x, mousedown.y)
             }
         }
     }
@@ -224,8 +222,7 @@ canvas.onmouseup = function(e) {
     dragging = false
 
     if (editing) {
-    }
-    else {
+    } else {
         restoreDrawingSurface()
         updateRubberBand(loc)
     }
